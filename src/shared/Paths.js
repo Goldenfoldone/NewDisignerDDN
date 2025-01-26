@@ -7,5 +7,6 @@ export const Pahts = {
    note: 'note',
    hrental: 'rent',
    news: 'new',
-   onepostpage: 'postpage'
+   onepostpage: 'postpage',
+   Aevents: 'events'
 }

@@ -1,5 +1,5 @@
 import sign from '../img/sign.png';
-import { Link, NavLink, Navigate, Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation} from "react-router-dom";
 import { styled } from "styled-components";
 import { Pahts } from './../../shared/Paths';
 
@@ -33,7 +33,7 @@ const AdLink = styled(Link)`
 `
 
 
-const adminItems = [{name:'Страницы'},{name:'Записи', url: Pahts.note},{name:'Комментарии'},{name:'Создание страницы',url: Pahts.postingspost},{name:'Создание записи'}]
+const adminItems = [{name:'Страницы'},{name:'Записи', url: Pahts.note},{name:'Отзывы'},{name:'Создание страницы',url: Pahts.postingspost},{name:'Создание мероприятий',url: Pahts.Aevents}]
 
 export const AdminMenu = () => {
     const params = useLocation()  
@@ -42,7 +42,7 @@ export const AdminMenu = () => {
         <Menu>
         <Glimg src={sign}/>
           {adminItems.map((e) => {
-            const liter = params.pathname.split('/').filter(e => e === Pahts.postingspost).join()
+            const liter = params.pathname.split('/').join().slice(7)
             return(              
               <AdLink to={e.url} className={e.url === liter ? 'active' : ''}>{e.name}</AdLink>
             )
