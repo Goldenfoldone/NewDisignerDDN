@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import imgnew from '../../img/картинкановостей.png'
 import { Pahts } from "../../../shared/Paths";
 
 
@@ -63,6 +62,9 @@ export const Newbutton = styled.a`
         font-size: 19pt;
         width: 180px;
         height: 40px;
+    }
+    @media (width <= 610px){
+        height: 56px;
     }
 `
 

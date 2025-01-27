@@ -73,7 +73,6 @@ export const TextContent = styled.div`
         cursor: pointer;
         @media (width < 1440px) {
             font-size: 26pt;
-            grid-column: span 2;
         }
     }
 `

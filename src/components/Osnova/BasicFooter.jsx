@@ -14,6 +14,11 @@ const FooterMenu = styled.div`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    @media (width <= 724px){
+        flex-direction: column;
+        align-content: center;  
+    }
+    
 `
 const LinkFooter = styled.a`
     font-size: 25px;
@@ -34,12 +39,19 @@ const ContactInfo = styled.div`
         flex-wrap: wrap;
         gap: 110px;
         justify-content: center;
+        flex-direction: column;
+        align-content: center;
     }
 `
 const MenuLogo = styled.img`
    width: 94px;
    height: 61px;
    justify-self: center;
+   @media (width <= 724px){
+        align-self: flex-end;
+        margin-right: 90px;
+   }
+   
 `
 const Contact = styled.div`
     display: grid;
