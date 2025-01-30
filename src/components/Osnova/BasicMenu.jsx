@@ -106,7 +106,7 @@ const Oblochka = styled.div`
 
 export const BasicMenu = () => {
     const navigation = useNavigate()
-    const label = [{name:'О нас', sabmenu:[{name:'Сведения об организации', url:Pahts.indormation},{name:'Структура', url:Pahts.structure},{name:'Документы', url:'#'}]}, {name:"Новости", url:Pahts.news}, {name:"Проекты", url:'#'}, {name:"НКО", url:'#'}, {name:"Аренда залов", url:Pahts.hrental}, {name:"Контакты", url:'#'}];
+    const label = [{name:'О нас', sabmenu:[{name:'Сведения об организации', url:Pahts.indormation},{name:'Структура', url:Pahts.structure},{name:'Документы', url:'#'}]}, {name:"Новости", url:Pahts.news}, {name:"Проекты", url:Pahts.project}, {name:"НКО", url:'#'}, {name:"Аренда залов", url:Pahts.hrental}, {name:"Контакты", url:'#'}];
     return (
         <Main>
             <a href="/"><MenuLogo src={logo}/></a> 
