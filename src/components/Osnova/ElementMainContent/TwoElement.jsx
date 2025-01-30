@@ -66,7 +66,7 @@ const TwoElButton = styled.button`
 export const TwoElement = () => {
     return(
         <Main>
-            <SectionText text='БЛИЖАЙЩИЕ МЕРОПРИЯТИЯ' width={734}/>
+            <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
             <FillColor>
                 <Events>
                     <EventsImg/>
