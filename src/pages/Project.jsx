@@ -1,12 +1,13 @@
 import { SectionText } from "../components/Osnova/ElementMainContent/SectionText"
 import { styled } from "styled-components"
 import { ProjectItem } from "./ElementPages/ProjectItem"
+import imggg from "../components/img/project/ЛОГО РОДИНА3-01.png"
 
 const text = [
     {title:'РОДИНА – ЗНАЧИТ ВМЕСТЕ!', color:'#F66A55', subtitle: 'Объединяем народы, знакомим жителей Удмуртии с этнокультурным многообразием, создаем практики совместной деятельности',project:[
-        {img: '', text:'ИгроБум «Родина – значит вместе!»'},
-        {img: '', text:'Молодёжная интеллектуальная игра «Этноэксперт»'},
-        {img: '', text:'Форум муниципальных образований «Мир в диалоге»'}
+        {img: imggg, text:'ИгроБум «Родина – значит вместе!»'},
+        {img: imggg, text:'Молодёжная интеллектуальная игра «Этноэксперт»'},
+        {img: imggg, text:'Форум муниципальных образований «Мир в диалоге»'}
 ]},
     {title:'РАДИ ВСЕХ И ДЛЯ КАЖДОГО', subtitle: 'Собираем и аккумулируем информацию о народах Удмуртии, изучаем современное состояние народов Удмуртии, помогаем сохранять и развивать этническое сообщество в условиях поликультурной среды',project:[
         {img: '', text:'Этноязыковой центр «Билингва»'},
@@ -29,7 +30,7 @@ const text = [
 
 const Main = styled.div`
    background-color: ${props => props.color};
-   margin: 20px 150px 0px 150px;
+   margin: 28px 86px 0px 86px;
    color: #EADAC8;
    border-radius: 30px;
 `
@@ -38,7 +39,9 @@ const MianP = styled.p`
     text-align: center;
     margin-bottom: 0px;
     line-height: 40px;
+    padding-top: 10px;
 `
+
 
 export const Project = () =>{
     return(
@@ -48,7 +51,7 @@ export const Project = () =>{
             <MianP>{text[0].title}</MianP>
             <MianP>{text[0].subtitle}</MianP>
             <ProjectItem props={text[0].project}/>
-        </Main>
+         </Main>
         </>
     )
 }
