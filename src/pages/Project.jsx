@@ -1,25 +1,33 @@
 import { SectionText } from "../components/Osnova/ElementMainContent/SectionText"
 import { styled } from "styled-components"
 import { ProjectItem } from "./ElementPages/ProjectItem"
-import imggg from "../components/img/project/ЛОГО РОДИНА3-01.png"
+import country from "../components/img/project/ЛОГО РОДИНА3-01.png"
+import bilingv from "../components/img/project/билингва лого (центр)-01.png"
+import bud from "../components/img/project/буд лого новое 2.png"
+import voice from "../components/img/project/голос моей родины лого.png"
+import expert from "../components/img/project/лого этн-ры.png"
+import world from "../components/img/project/мирвдиалоге картинки 2.png"
+import can from "../components/img/project/можем-поможем лого.png"
+import museum from "../components/img/project/музей ддн лого.png"
+import etepxert from "../components/img/project/etnoexpert-01.png"
 
 const text = [
     {title:'РОДИНА – ЗНАЧИТ ВМЕСТЕ!', color:'#F66A55', subtitle: 'Объединяем народы, знакомим жителей Удмуртии с этнокультурным многообразием, создаем практики совместной деятельности',project:[
-        {img: imggg, text:'ИгроБум «Родина – значит вместе!»'},
-        {img: imggg, text:'Молодёжная интеллектуальная игра «Этноэксперт»'},
-        {img: imggg, text:'Форум муниципальных образований «Мир в диалоге»'}
+        {img: country, text:'ИгроБум «Родина – значит вместе!»'},
+        {img: etepxert, text:'Молодёжная интеллектуальная игра «Этноэксперт»'},
+        {img: world, text:'Форум муниципальных образований «Мир в диалоге»'}
 ]},
-    {title:'РАДИ ВСЕХ И ДЛЯ КАЖДОГО', subtitle: 'Собираем и аккумулируем информацию о народах Удмуртии, изучаем современное состояние народов Удмуртии, помогаем сохранять и развивать этническое сообщество в условиях поликультурной среды',project:[
-        {img: '', text:'Этноязыковой центр «Билингва»'},
-        {img: '', text:'Музей-лаборатория народов Удмуртии'},
-        {img: '', text:'Фестиваль-конкурс «Голос моей Родины»'}
+    {title:'РАДИ ВСЕХ И ДЛЯ КАЖДОГО', color:'#3D545E', subtitle: 'Собираем и аккумулируем информацию о народах Удмуртии, изучаем современное состояние народов Удмуртии, помогаем сохранять и развивать этническое сообщество в условиях поликультурной среды',project:[
+        {img: bilingv, text:'Этноязыковой центр «Билингва»'},
+        {img: museum, text:'Музей-лаборатория народов Удмуртии'},
+        {img: voice, text:'Фестиваль-конкурс «Голос моей Родины»'}
     ]},
-    {title:'ДАРИМ ДОБРО НА РАВНЫХ', subtitle: 'Обучаем современным практикам межкультурной коммуникации, привлекаем иностранных граждан в знакомство с региональной культурой, выстраиваем сетевое взаимодействие с институтами гражданского общества',project:[
-        {img: '', text:'Региональный корпус Этноволонётров'},
-        {img: '', text:'Образовательный центр «Буд»'},
-        {img: '', text:'Семейный центр социокультурной адаптации мигрантов «Можем-Поможем»'}
+    {title:'ДАРИМ ДОБРО НА РАВНЫХ', color:'#AA9479', subtitle: 'Обучаем современным практикам межкультурной коммуникации, привлекаем иностранных граждан в знакомство с региональной культурой, выстраиваем сетевое взаимодействие с институтами гражданского общества',project:[
+        {img: expert, text:'Региональный корпус Этноволонётров'},
+        {img: bud, text:'Образовательный центр «Буд»'},
+        {img: can, text:'Семейный центр социокультурной адаптации мигрантов «Можем-Поможем»'}
     ]},
-    {title:'НАЦИОНАЛЬНЫЕ ПРАЗДНИКИ', subtitle: 'Республиканские праздники разных народов',project:[
+    {title:'НАЦИОНАЛЬНЫЕ ПРАЗДНИКИ', color:'#D96A57', subtitle: 'Республиканские праздники разных народов',project:[
         {img: '', text:'Удмуртский праздник Гербер'},
         {img: '', text:'Марийский праздник Семык'},
         {img: '', text:'Татарский и башкирский праздник Сабантуй'},
@@ -47,11 +55,18 @@ export const Project = () =>{
     return(
         <>
         <SectionText text='Проекты'/>
-        <Main color={text[0].color}>
-            <MianP>{text[0].title}</MianP>
-            <MianP>{text[0].subtitle}</MianP>
-            <ProjectItem props={text[0].project}/>
-         </Main>
+        {text.map ((item) => {
+            return(
+                <>
+                <Main color={item.color}>
+                    <MianP>{item.title}</MianP>
+                    <MianP>{item.subtitle}</MianP>
+                    <ProjectItem props={item.project}/>
+                </Main>
+                </>
+            )
+        })}
+        
         </>
     )
 }
