@@ -27,7 +27,7 @@ const text = [
         {img: bud, text:'Образовательный центр «Буд»'},
         {img: can, text:'Семейный центр социокультурной адаптации мигрантов «Можем-Поможем»'}
     ]},
-    {title:'НАЦИОНАЛЬНЫЕ ПРАЗДНИКИ', color:'#D96A57', subtitle: 'Республиканские праздники разных народов',project:[
+    {title:'НАЦИОНАЛЬНЫЕ ПРАЗДНИКИ', color:'#D96A57', subtitle: 'Республиканские праздники разных народов', margin:60, project:[
         {img: '', text:'Удмуртский праздник Гербер'},
         {img: '', text:'Марийский праздник Семык'},
         {img: '', text:'Татарский и башкирский праздник Сабантуй'},
@@ -39,6 +39,7 @@ const text = [
 const Main = styled.div`
    background-color: ${props => props.color};
    margin: 28px 86px 0px 86px;
+   margin-bottom: ${props => props.margin}px;
    color: #EADAC8;
    border-radius: 30px;
 `
@@ -58,7 +59,7 @@ export const Project = () =>{
         {text.map ((item) => {
             return(
                 <>
-                <Main color={item.color}>
+                <Main color={item.color} margin={item.margin}>
                     <MianP>{item.title}</MianP>
                     <MianP>{item.subtitle}</MianP>
                     <ProjectItem props={item.project}/>
