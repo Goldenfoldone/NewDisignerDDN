@@ -42,6 +42,10 @@ const Main = styled.div`
    margin-bottom: ${props => props.margin}px;
    color: #EADAC8;
    border-radius: 30px;
+   @media (width < 608px) {
+        margin: 28px 30px 0px 30px;
+        margin-bottom: ${props => props.margin}px;
+    }
 `
 const MianP = styled.p`
     font-size: 25pt;
@@ -49,6 +53,10 @@ const MianP = styled.p`
     margin-bottom: 0px;
     line-height: 40px;
     padding-top: 10px;
+    @media (width < 750px) {
+        font-size: 18pt;
+        line-height: 25px;
+    }
 `
 
 

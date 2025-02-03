@@ -5,16 +5,20 @@ const Main = styled.div`
     grid-template-columns: repeat(3,1fr);
     padding: 20px;
     gap: 32px;
+    @media (width < 750px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 `
 const MainImg= styled.img`
-    width: 281px; 
-    height: 120px;
-    object-fit: cover;
-    object-position: center center;
+    height: 80%;
+    width: 90%;
+    object-fit: fill;
 `
 const Maina = styled.a`
     text-decoration: none;
-    width: 246px;
+    width: 90%;
     background-color: #D96A57;
     color:#EEE9E0;
     font-size: 24px;
@@ -24,6 +28,9 @@ const Maina = styled.a`
         background-color: #EADAC8;
         color: #D96A57;
         font-weight: bold;
+    }
+    @media (width < 750px) {
+        font-size: 18pt;
     }
 `
 
@@ -37,6 +44,11 @@ const Itemdiv = styled.div`
     padding-bottom: 37px;
     padding-top: 87px;
     gap: 60px;
+    @media (width < 750px) {
+        gap: 10px;
+        padding-bottom: 20px;
+        padding-top: 50px;
+    }
 `
 export const ProjectItem = (props) =>{
      

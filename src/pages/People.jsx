@@ -24,6 +24,9 @@ const Ground = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
+    @media (width < 750px) {
+        flex-direction: column;
+    }
 `
 const Contact = styled.div`
     display: flex;
@@ -33,21 +36,33 @@ const Contact = styled.div`
 const PImg = styled.img`
     width: 30%;
     border-radius: 10px;
+    @media (width < 750px) {
+        width: 50%;
+    }
 `
 const PName = styled.p`
     color: #F0EAE0;
     font-size: 50pt;
     margin: 0 0 ;
+    @media (width < 750px) {
+        font-size: 30pt;
+    }
 `
 const PPost = styled.p`
     color: #F66A55;
     font-size: 20pt;
     margin: 0 0;
+    @media (width < 750px) {
+        font-size: 15pt;
+    }
 `
 const Ptext = styled.p`
 color: #F0EAE0;
     margin: 0 0;
     font-size: 25pt;
+    @media (width < 750px) {
+        font-size: 15pt;
+    }
 `
 const Plink = styled.a`
     padding-left: 10px;

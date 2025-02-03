@@ -15,14 +15,25 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    @media (width < 608px) {
+       display: flex;
+       flex-direction: column;
+    }
 `
 const Img = styled.img`
     max-width: 540px;
+    @media (width < 608px) {
+       max-width: 100%;
+       border-radius: 10px 10px 0px 0px;
+    }
 `
 const Mesto = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (width < 608px) {
+        align-items: baseline;
+    }
 `
 const DivStyle = styled.div`
     display: flex;

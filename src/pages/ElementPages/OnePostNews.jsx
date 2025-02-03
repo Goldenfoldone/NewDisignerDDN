@@ -12,6 +12,10 @@ const DImg =styled.div`
 const NewOsnova = styled(Osnova)`
     display: flex;
     gap: 10px;
+    @media (width < 608px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const Imgpost = styled.img`
@@ -19,6 +23,9 @@ const Imgpost = styled.img`
     height: 500px;
     object-fit: cover;
     object-position: top;    
+    @media (width < 608px) {
+        height: 200px;
+    }
 `
 
 const PostT = styled(CapLetters)`
@@ -50,9 +57,16 @@ const Link = styled(Styleda)`
 const Spisok = styled.div`
     display: flex;
     flex-direction: column;
+    @media (width < 608px) {
+       margin-bottom: 30px;
+    }
 `
 const CapLettersPost = styled(CapLetters)`
     text-align: center;
+    @media (width < 608px) {
+       font-size: 25px;
+        
+    }
 `
 
 export const OnePostNews = () => {
@@ -75,10 +89,10 @@ export const OnePostNews = () => {
                 <LinkSotcSeti />
                 <PostT>Проекты:</PostT> 
                 <Spisok>
-                    <Link href='https://gerber.udmddn.ru/'>Гербер</Link>
-                    <Link href='https://daur.tv/'>Даур ТВ</Link>
-                    <Link href='https://udmddn.ru/tag/tangyra/'>Тангыра</Link>
-                    <Link href='https://mirvdialoge.ru/'>Мир в диалоге</Link>
+                    <Link href='https://gerber.udmddn.ru/' target="_self">Гербер</Link>
+                    <Link href='https://daur.tv/' target="_self">Даур ТВ</Link>
+                    <Link href='https://udmddn.ru/tag/tangyra/' target="_self">Тангыра</Link>
+                    <Link href='https://mirvdialoge.ru/' target="_self">Мир в диалоге</Link>
                 </Spisok>
                 
             </div>            

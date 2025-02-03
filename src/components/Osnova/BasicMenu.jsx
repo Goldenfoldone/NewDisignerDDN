@@ -1,10 +1,17 @@
 import { styled } from "styled-components"
 import logo from '../img/sign.png'
-import burg from '../img/burger.png'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Pahts } from "../../shared/Paths";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
+
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useRef, useState } from "react";
+
 
 
 const Main = styled.div`
@@ -49,19 +56,20 @@ const LabelTitle = styled.a`
         color: #2C535E;
     }
 `
-const Burger = styled.button`
+const Burger = styled(Navbar)`
     display: none;
     @media (width <= 608px){
         display: block;
-        width: 50px;
-        height: 50px;
-        border: 0;
-        background-position: center center;
-        background-image: url(${burg});
-        background-size: contain;
-        background-color: #F66A55;
-        cursor: pointer;
     }
+`
+const Linktel = styled(Nav.Link)`
+    font-size: 23px;
+`
+const LinkDropdowntel = styled(NavDropdown)`
+    font-size: 23px;
+`
+const LinkDropdowntelItem = styled(NavDropdown.Item)`
+    font-size: 23px;
 `
 const MenuDropdown = styled(NavDropdown)`
     color: #F0EAE0;
@@ -106,6 +114,10 @@ const Oblochka = styled.div`
 
 export const BasicMenu = () => {
     const navigation = useNavigate()
+    const [show, setShow] = useState(false);
+    const toggleOffCanvas = () => {
+        setShow((show) => !show);
+      };
     const label = [{name:'О нас', sabmenu:[{name:'Сведения об организации', url:Pahts.indormation},{name:'Структура', url:Pahts.structure},{name:'Документы', url:'#'}]}, {name:"Новости", url:Pahts.news}, {name:"Проекты", url:Pahts.project}, {name:"НКО", url:'#'}, {name:"Аренда залов", url:Pahts.hrental}, {name:"Контакты", url:'#'}];
     return (
         <Main>
@@ -144,7 +156,45 @@ export const BasicMenu = () => {
                     </LinkSoc> 
         </Oblochka>
             </MenuLabel>
-            <Burger/>
+            <Burger  key={false} expand={false} >
+                <Container fluid >
+                    <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-false`} onClick={() => {toggleOffCanvas()}}/>
+                    <Navbar.Offcanvas
+                    id={`offcanvasNavbar-expand-false`}
+                    aria-labelledby={`offcanvasNavbarLabel-expand-false`}
+                    placement="end"
+                    show={show}
+                    >
+                    <Offcanvas.Header closeButton onClick={() => {toggleOffCanvas()}}>
+                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-fasle`}>
+                        Дом Дружбы Народов
+                        </Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        <Nav className="justify-content-end flex-grow-1 pe-3">
+                        {label.map((el) => {if (el.sabmenu === undefined){
+                            return <Linktel id={`offcanvasNavbar-expand-true`}  onClick={() => {
+                                navigation('/' + el.url)
+                                toggleOffCanvas()
+                            }}>{el.name}</Linktel>
+                        }else {
+                            return <LinkDropdowntel
+                            title={el.name}
+                            id={`offcanvasNavbarDropdown-expand-fasle`}>
+                            {el.sabmenu.map((item) => {
+                                return <LinkDropdowntelItem onClick={() => {
+                                    navigation('/' + item.url)
+                                    toggleOffCanvas()
+                                }}>{item.name}</LinkDropdowntelItem>
+                            })}
+                            </LinkDropdowntel>
+                        }})}
+                
+                        </Nav>
+                    </Offcanvas.Body>
+                    </Navbar.Offcanvas>
+                </Container>
+        </Burger>
         </Main>
     )
 }

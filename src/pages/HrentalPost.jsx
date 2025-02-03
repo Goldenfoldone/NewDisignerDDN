@@ -6,6 +6,9 @@ const Img = styled.img`
     display: grid;
     max-width: 800px;
     margin-bottom: 15px;
+    @media (width < 608px) {
+        max-width: 100%;
+    }
     
 `
 const Doptext = styled(Styledp)`

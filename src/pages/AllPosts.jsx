@@ -7,12 +7,19 @@ const Osnova = styled.div`
     display: flex;
     gap: 20px;
     align-items: center;
+    @media (width < 608px) {
+        flex-direction: column;
+
+    }
 `;
 
 const Img = styled.img`
     max-width: 280px;
     border-radius: 10px;
-    
+    @media (width < 608px) {
+        max-width: 350px;
+        
+    }
 `;
 
 const Zagolovok = styled.h1`
@@ -21,6 +28,10 @@ const Zagolovok = styled.h1`
     font-style: italic;
     margin:0;
     color: #535353;
+    @media (width < 608px) {
+        min-width: 280px;
+        
+    }
 `;
 
 const Links = styled(Styleda)`
@@ -48,7 +59,7 @@ export const AllPosts  = (props) => {
                             <div>
                                 <Zagolovok>{title}</Zagolovok>
                                 <Decript>{descropion}</Decript>
-                                <Links href={'/#/'+ Pahts.onepostpage + `/${id}`} target="_blank">Подробнее &rarr;</Links>
+                                <Links href={'/#/'+ Pahts.onepostpage + `/${id}`} target="_self">Подробнее &rarr;</Links>
                             </div>
                         </Osnova>
                     </>

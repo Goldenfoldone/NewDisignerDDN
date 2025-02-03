@@ -56,4 +56,7 @@ font-size: 23px;
 export const Osnova = styled.div`
     margin-top: 1.5%;
     padding: 0 160px;
+    @media (width < 608px) {
+        padding: 0 30px;
+    }
 `;
