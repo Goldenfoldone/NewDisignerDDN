@@ -118,7 +118,7 @@ export const BasicMenu = () => {
     const toggleOffCanvas = () => {
         setShow((show) => !show);
       };
-    const label = [{name:'О нас', sabmenu:[{name:'Сведения об организации', url:Pahts.indormation},{name:'Структура', url:Pahts.structure},{name:'Документы', url:'#'}]}, {name:"Новости", url:Pahts.news}, {name:"Проекты", url:Pahts.project}, {name:"НКО", url:'#'}, {name:"Аренда залов", url:Pahts.hrental}, {name:"Контакты", url:'#'}];
+    const label = [{name:'О нас', sabmenu:[{name:'Сведения об организации', url:Pahts.indormation},{name:'Структура', url:Pahts.structure},{name:'Документы', url:Pahts.doc}]}, {name:"Новости", url:Pahts.news}, {name:"Проекты", url:Pahts.project}, {name:"НКО", url:Pahts.nko}, {name:"Аренда залов", url:Pahts.hrental}, {name:"Контакты", url:Pahts.contacts}];
     return (
         <Main>
             <a href="/"><MenuLogo src={logo}/></a> 

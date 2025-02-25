@@ -34,7 +34,6 @@ const Img = styled.img`
 const Text = styled.p`
     font-size: ${props => props.fontsize}px;
     text-overflow: ellipsis;
-    white-space: ${props => props.whitespace};
     overflow: hidden;
      display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -74,7 +73,7 @@ export const SectionNew = (props) => {
         <New span={props.span} display={props.display}>
         <Img src={process.env.REACT_APP_API_URL +'/api/static/'+ post.img} width={props.widthimg} height={props.heightimg}/>
         <NewContent display={props.display}>
-            <Text fontsize={props.size} whitespace={props.whitespace} dangerouslySetInnerHTML={{__html: post.title}}></Text>
+            <Text fontsize={props.size}  dangerouslySetInnerHTML={{__html: post.title}}></Text>
             <Newbutton href={'/#/'+ Pahts.onepostpage + `/${post.id}`} target="_blank">Подробнее</Newbutton>
         </NewContent>
         

@@ -92,6 +92,7 @@ const Button = styled(Newbutton)`
 const Button_Modal =styled(Newbutton)`
     font-size: 20px;
     width: 150px;
+    padding-top: 13px;
 
 `
 const SliderBack = styled.div`    
@@ -173,7 +174,7 @@ export const FourElements = () => {
             <Main>
                 <SectionText text='ДОМ ДРУЖБЫ НАРОДОВ СЕГОДНЯ'/> 
                 <SectionTextmini>
-                    это ресурсный центр в сфере реализации <br></br> государственной национальной политики Удмуртской Республики
+                    ресурсный центр в сфере реализации <br></br> государственной национальной политики Удмуртской Республики
                 </SectionTextmini>
                 <MainText>
                     Проводится<br></br> Более <span>800</span> мероприятий в год <br></br> Реализуется <span>20</span> ключевых проектов<br></br> Совместно с <span>40</span> национально культурными объединениями<br></br> При участии <span>30</span> муниципальных образований <br></br> с общим охватом <span>900 тыс.</span> человек ежегодно
@@ -197,7 +198,7 @@ export const FourElements = () => {
                 })}
             </MySlider>
             </SliderBack>
-            <SectionText text='МЫ БУДЕМ РАДЫ УЗНАТЬ ВАШЕ МНЕНИЕ О ДДН' width={578}/>
+            <SectionText text='МЫ БУДЕМ РАДЫ УЗНАТЬ ВАШЕ МНЕНИЕ О НАС' width={578}/>
             <ButtonCenter>
                 <Button variant="primary" onClick={handleShow}>Оставить отзыв</Button>
                 <Modal show={show} onHide={handleClose}>

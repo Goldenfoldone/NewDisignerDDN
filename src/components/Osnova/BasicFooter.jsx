@@ -8,7 +8,7 @@ import icontelegram from '../img/svg/icon=telegram.svg'
 
 const Main = styled.div`
     background-color: #2C535E;
-    padding-top: 100px;
+
 `
 const FooterMenu = styled.div`
     display: flex;
@@ -83,9 +83,9 @@ export const BasicFooter = () =>{
     const label = ['ДДН', "Отчетность", "Новости", "Афиша", "Положения", "Контакты"]
     return(
         <Main>
-            <FooterMenu>
+           {/*  <FooterMenu>
                 {label.map((el) => {return <LinkFooter>{el}</LinkFooter>})}
-            </FooterMenu>
+            </FooterMenu>*/}
             <ContactInfo>
                 <> 
                     <Contact gridjust='end'>

@@ -7,7 +7,7 @@ import dep_tex_obsl from '../components/img/administration/Уткин.JPG';
 import dep_tex_snab from '../components/img/administration/Гаратуев.JPG';
 import dep_dir_admin from '../components/img/administration/Коконова.JPG';
 import dep_dep_relations from '../components/img/administration/Полатова.JPG';
-import dep_dep_events from '../components/img/administration/Полатова.JPG';
+import dep_dep_events from '../components/img/administration/Мираева.JPG';
 import dep_dep_education from '../components/img/administration/Чурина.JPG';
 import dep_dep_project from '../components/img/administration/Серов.JPG';
 import dep_dep_info from '../components/img/administration/Уткина.JPG';
@@ -79,13 +79,13 @@ export const People = () => {
         'dep_dir_2':{img:dep_dir_2, name:'Жуйкова Алина Владимировна',contact_tel:'8 (3412) 63-10-24',contact_mail:'zhuikova_av@ddn.udmr.ru ', post:'заместитель директора по основной деятельности',contact_telweb:'tel:83412631024',contact_mailweb:'mailto:zhuikova_av@ddn.udmr.ru '},
         'dep_tex_obsl':{img:dep_tex_obsl, name:'Уткин Евгений Владимирович',contact_tel:'8 (3412) 63-10-04',contact_mail:'utkin_ev@ddn.udmr.ru', post:'начальник отдела информационно-технического обеспечения',contact_telweb:'tel:83412631004',contact_mailweb:'mailto:utkin_ev@ddn.udmr.ru'},
         'dep_tex_snab':{img:dep_tex_snab, name:'Гаратуев Мурат Масхутович',contact_tel:'8 (3412) 63-10-17',contact_mail:'garatuev_mm@ddn.udmr.ru', post:'начальник отдела технического обеспечения и снабжения',contact_telweb:'tel:83412631017',contact_mailweb:'mailto:garatuev_mm@ddn.udmr.ru'},
-        'dep_dir_admin':{img:dep_dir_admin, name:'Кононова Анна Геннадьевна',contact_tel:'8 (3412) 63-10-68',contact_mail:'kononova_ag@ddn.udmr.ru', post:'начальник административно-правового отдела ',contact_telweb:'tel:83412631068',contact_mailweb:'mailto:kononova_ag@ddn.udmr.ru'},
+        'dep_dir_admin':{img:dep_dir_admin, name:'Кононова Алла Геннадьевна',contact_tel:'8 (3412) 63-10-68',contact_mail:'kononova_ag@ddn.udmr.ru', post:'начальник административно-правового отдела ',contact_telweb:'tel:83412631068',contact_mailweb:'mailto:kononova_ag@ddn.udmr.ru'},
         'dep_dep_relations':{img:dep_dep_relations, name:'Полатова Олеся Анатольевна',contact_tel:'8 (3412) 63-10-68',contact_mail:'polatova_aa@ddn.udmr.ru', post:'заведующий отделом организации мероприятий и взаимодействия с национально-культурными объединениями',contact_telweb:'tel:83412631068',contact_mailweb:'mailto:polatova_aa@ddn.udmr.ru'},
-        'dep_dep_events':{img:dep_dep_events, name:'Мираева Татьяна Винеаминовна',contact_tel:'8 (3412) 63-10-75',contact_mail:'miraeva_av@ddn.udmr.ru', post:'Отдел этнокультурного просвещения и языковых практик',contact_telweb:'tel:83412631075',contact_mailweb:'mailto:miraeva_av@ddn.udmr.ru'},
+        'dep_dep_events':{img:dep_dep_events, name:'Мираева Татьяна Вениаминовна',contact_tel:'8 (3412) 63-10-75',contact_mail:'miraeva_av@ddn.udmr.ru', post:'заведующий отделом этнокультурного просвещения и языковых практик',contact_telweb:'tel:83412631075',contact_mailweb:'mailto:miraeva_av@ddn.udmr.ru'},
         'dep_dep_education':{img:dep_dep_education, name:'Чурина Татьяна Владимировна',contact_tel:'8 (3412) 63-10-44',contact_mail:'churina_tv@ddn.udmr.ru', post:'заведующий отделом по работе с муниципальными образованиями',contact_telweb:'tel:83412631044',contact_mailweb:'mailto:churina_tv@ddn.udmr.ru'},
         'dep_dep_project':{img:dep_dep_project, name:'Серов Роман Дмитриевич',contact_tel:'8 (3412) 63-10-88',contact_mail:'serov_rd@ddn.udmr.ru', post:'заведующий отделом молодёжных инициатив и общественных проектов',contact_telweb:'tel:83412631088',contact_mailweb:'mailto:serov_rd@ddn.udmr.ru'},
         'dep_dep_info':{img:dep_dep_info,name:'Уткина Мария Михайловна',contact_tel:'8 (3412) 63-10-62',contact_mail:'utkina_mm@ddn.udmr.ru', post:'начальник информационно-аналитического отдела',contact_telweb:'tel:83412631062',contact_mailweb:'mailto:utkina_mm@ddn.udmr.ru'},
-        'dep_dep_admin_res':{img:dep_dep_admin_res, name:'Миникеева Флюза Чингизовна',contact_tel:'8 (3412) 63-10-01',contact_mail:'minikeeva_fch@ddn.udmr.ru', post:'заведующая отделом администрирования ресурсов',contact_telweb:'tel:83412631001',contact_mailweb:'mailto:minikeeva_fch@ddn.udmr.ru'}
+        'dep_dep_admin_res':{img:dep_dep_admin_res, name:'Миникеева Флуза Чингизовна',contact_tel:'8 (3412) 63-10-01',contact_mail:'minikeeva_fch@ddn.udmr.ru', post:'заведующий отделом администрирования ресурсов',contact_telweb:'tel:83412631001',contact_mailweb:'mailto:minikeeva_fch@ddn.udmr.ru'}
     }
     const {img, name,contact_tel,contact_mail,post,contact_mailweb,contact_telweb} = people[admin]
     return (

@@ -76,6 +76,7 @@ import {
 import translations from 'ckeditor5/translations/ru.js';
 
 import 'ckeditor5/ckeditor5.css';
+import { createEvents } from "../../http/evenstsAPI";
 
 
 const AdInput = styled.input`
@@ -140,6 +141,13 @@ const DItem = styled(Dropdown.Item)`
         font-size:125%;
     }
 `
+
+const DataDiv = styled.div`
+	display: flex;
+	font-size: 35px;
+	align-items: center;
+	margin-left: 9%;
+`
 export const  CreatEvents = () => {
 	const [newpost, setNewPost] = useState('')
     const editorContainerRef = useRef(null);
@@ -150,10 +158,9 @@ export const  CreatEvents = () => {
     const {new_post} = useContext(Context)
     const [head, setHead] = useState('')
     const [file, setFile] = useState(null)
-    const [athor, setAthor] = useState('')
-    const [categor, setCategor] = useState('')
-    const [text, setText] = useState('')
-	const category = [{name: 'Новости'},{name: 'Статьи'},{name: 'Развлечения'},{name: 'Иворъёс'},{name: 'Выставки'},{name: 'Фото'} ]
+
+    const [timeOn, setTtimeon] = useState(null)
+	const [timeOut, setTtimeout] = useState(null)
  
     const selectFile = e => {
         setFile(e.target.files[0])
@@ -378,16 +385,23 @@ export const  CreatEvents = () => {
         const fromData = new FormData()
 		fromData.append('title', head)
 		fromData.append('text', newpost)
-		fromData.append('author', athor)
-		fromData.append('category', categor)
+		fromData.append('timeOn', timeOn)
+		fromData.append('timeOut', timeOut)
 		fromData.append('img', file)
-		
+		createEvents(fromData).then(() => {window.location.reload()})
     }
 
+	
     
     return(
         <div>
             <AdInput type="text" placeholder='Введите заголовок' value={head} onChange={e => setHead(e.target.value)} required/>
+			<DataDiv>
+				<p>c</p>
+				<AdInput type="date" id="start" name="trip-start" value={timeOn} onChange={e => setTtimeon(e.target.value)}/>
+				<p>по</p>
+				<AdInput type="date" id="start" name="trip-start" value={timeOut} onChange={e => setTtimeout(e.target.value)}/>
+			</DataDiv>
             <div className="main-container">
 			<div className="editor-container editor-container_document-editor" ref={editorContainerRef}>
 				<div className="editor-container__menu-bar" ref={editorMenuBarRef}></div>
@@ -413,6 +427,7 @@ export const  CreatEvents = () => {
 									config={editorConfig}
 								/>
 							)}
+
 						</div>
 					</div>
 				</div>
@@ -421,10 +436,7 @@ export const  CreatEvents = () => {
             <Form.Control type="file" onChange={selectFile} />
             <div>
                 <Helper>
-                    <AdInput type="text"  class='l' placeholder='Укажите автора статьи' value={athor} onChange={e => setAthor(e.target.value)} required/>
-                </Helper>
-                <Helper>
-             
+					<Button variant="outline-success" onClick={addPost}>Опубликовать</Button>
                 </Helper>
             </div>
 

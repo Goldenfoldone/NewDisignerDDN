@@ -8,7 +8,7 @@ export const createPost   = async (post) => {
 }
 
 export const fetchPost = async (query, page, limit = 1) => {
-    const params = new URLSearchParams(query)
+    const params = new URLSearchParams(query, page, limit)
     const {data} = await $host.get('/api/postsy/getal', {params})
     return data
 }

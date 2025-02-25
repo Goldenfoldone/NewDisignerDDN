@@ -1,5 +1,8 @@
 import { styled } from "styled-components"
 import { SectionText } from "./SectionText"
+import { useEffect, useState } from "react"
+import { fetchEvents } from "../../../http/evenstsAPI"
+
 
 const Main = styled.div`
     padding-top: 54px;
@@ -9,15 +12,14 @@ const Main = styled.div`
 const FillColor = styled.div`
     display: flex;
     justify-content: space-around;
-    height: 495px;
     margin-top: 100px;
+    padding-bottom: 50px;
     background-color: #2C535E;
     @media (width <= 924px){
         flex-direction: column;
         align-items: center;
         justify-content:space-between;
         gap: 15px;
-        height: 520px;
     }
 `
 const Events =  styled.div`
@@ -47,8 +49,18 @@ const EventsText = styled.p`
     padding-top: 24px;
     padding-left: 30px;
     padding-bottom: 30px;
+    padding-right: 24px;
     font-size: 23pt;
     word-wrap: break-word;
+    span{
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    br{
+    }
 `
 const TwoElButton = styled.button`
     display: none;
@@ -64,24 +76,50 @@ const TwoElButton = styled.button`
 `
 
 export const TwoElement = () => {
-    return(
+    const [posts, setPosts] = useState()    
+    useEffect(()=>{
+        fetchEvents().then(data => {setPosts(data.rows)})
+    }, [])
+    if (!posts){
+        return null;
+    }
+    posts.sort((a,b)=> parseFloat(b.id)-parseFloat(a.id))
+    return (
         <Main>
-            <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
-            <FillColor>
-                <Events>
-                    <EventsImg/>
-                    <EventsText>ИНФОРМАЦИЯ <br/>О МЕРОПРИЯТИИ ДАТА</EventsText>
-                </Events>
-                <Events>
-                    <EventsImg/>
-                    <EventsText>ИНФОРМАЦИЯ <br/>О МЕРОПРИЯТИИ ДАТА</EventsText>
-                </Events>
-                <Events>
-                    <EventsImg/>
-                    <EventsText>ИНФОРМАЦИЯ <br/>О МЕРОПРИЯТИИ ДАТА</EventsText>
-                </Events>
-                <TwoElButton>Ещё</TwoElButton>
-            </FillColor>        
-        </Main>
-    )
+                <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
+                <FillColor>
+        {posts.map((e, item)=>{
+            let day = new Date(e.timeOn)
+            let month = new Date(e.timeOn)
+            let year = new Date(e.timeOn)
+            let dayout = new Date(e.timeOut)
+            let monthout = new Date(e.timeOut)
+            let yearout = new Date(e.timeOut)
+        if (item < 3){
+        if (e.timeOut == e.timeOn){
+            return(
+                    <Events>
+                        <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                        <EventsText> <span>{e.title}</span> 
+                        {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`}</EventsText>
+                    </Events>)
+            
+        }else {
+            
+            return(
+                    <Events>
+                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                            <EventsText> <span>{e.title}</span> 
+                           с {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`} по {`${dayout.getDate()} ${monthout.toLocaleString('default', { month: 'long' })} ${yearout.getFullYear()}`}</EventsText>
+                            
+                            
+                    </Events>  
+            )     
+                  
+        }}
+    })}
+    <TwoElButton>Ещё</TwoElButton>
+    </FillColor>        
+
+</Main>)
 }

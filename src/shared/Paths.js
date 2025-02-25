@@ -10,4 +10,6 @@ export const Pahts = {
    onepostpage: 'postpage',
    Aevents: 'events',
    project: 'project',
+   nko: 'nko',
+   contacts: 'contacts',
 }

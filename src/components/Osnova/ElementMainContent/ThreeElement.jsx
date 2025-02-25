@@ -44,10 +44,10 @@ export const ThreeElement = () =>{
         <Main>
             <SectionText text='НОВОСТИ' width={245}/>
             <GridNew>
-                <SectionNew span={3} display='flex' size={40} whitespace='wrap' widthimg={440} heightimg={295} contnet={posts[0]}/>
-                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}  whitespace={determin_width() ? 'wrap':'nowrap'} widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[1]}/>
-                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}  whitespace={determin_width() ? 'wrap':'nowrap'} widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[2]}/>
-                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}  whitespace={determin_width() ? 'wrap':'nowrap'} widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[3]}/>
+                <SectionNew span={3} display='flex' size={40}  widthimg={440} heightimg={295} contnet={posts[0]}/>
+                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}   widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[1]}/>
+                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}   widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[2]}/>
+                <SectionNew span={determin_width() ? 3: 1} display={determin_width() ? 'flex':'grid'} size={determin_width() ? 40:25}   widthimg={determin_width() ? 440:292} heightimg={determin_width() ? 295:196} contnet={posts[3]}/>
             </GridNew>
         </Main>
     )

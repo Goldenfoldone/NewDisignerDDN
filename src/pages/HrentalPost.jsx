@@ -33,7 +33,7 @@ export const Hrentalpost = (props) =>{
                  return <Doptext>{e}</Doptext>
             })}
             <Text>Стоимость аренды:</Text>
-            <Doptext>1 час - <b>{data.price} рублей</b></Doptext>
+            {/* <Doptext>1 час - <b>{data.price} рублей</b></Doptext>*/}
             <Text>В стоимость входит:</Text>
             {data.priceincl.split(', ').map((e) => {
                  return <Doptext>{e}</Doptext>
