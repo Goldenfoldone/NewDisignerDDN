@@ -32,12 +32,11 @@ export const Hrentalpost = (props) =>{
             {data.scope.split('; ').map((e) => {
                  return <Doptext>{e}</Doptext>
             })}
-            <Text>Стоимость аренды:</Text>
-            {/* <Doptext>1 час - <b>{data.price} рублей</b></Doptext>*/}
             <Text>В стоимость входит:</Text>
             {data.priceincl.split(', ').map((e) => {
                  return <Doptext>{e}</Doptext>
             })}
+            <Text>Примечание: <br />Оплата до 5 часов – почасовая <br /> От 6-8 часов применяется скидка 10% <br /> Свыше 8 часов применяется скидка 20%</Text>
             <Text>Контакты:</Text>            
             <Text><Styleda href="tel:+73412631001">+7 (3412) 63-10-01</Styleda> Миникеева Флюз Чингизовна</Text>
             <Text><Styleda href="tel:+73412631001">+7 (3412) 63-10-37</Styleda> Администратор</Text>

@@ -60,7 +60,7 @@ export const Contacts = () => {
             <Text>
                 <Glava>АДРЕС:</Glava>
                 <Link>г.Ижевск,</Link>
-                <Link>ул.Орджникидзе,33а</Link>
+                <Link>ул.Орджоникидзе,33а</Link>
                 <Glava>Телефон:</Glava>
                 <Link href="tel:+73412631011">+7 (3412) 63-10-11</Link>
                 <Glava>E-MAIL:</Glava>

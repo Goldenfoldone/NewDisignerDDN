@@ -33,7 +33,7 @@ import ork30 from '../components/img/nko/30 армяне.png'
 import ork31 from '../components/img/nko/31 ориен тадж.png'
 
 
-
+ 
 const Main = styled.div`
     padding: 56px  73px 50px 60px;
     display: grid;

@@ -72,7 +72,7 @@ const SubOsnova = styled(Osnova)`
         <SubOsnova>
                 <CapLetters>{props.name}</CapLetters>        
                 <AllPosts massiv={posts}/>
-                        <PaginationNews>
+                    {/*    <PaginationNews>
                             <Prev />
                             <Item active>{1}</Item>
                             {num.map(() => {
@@ -103,7 +103,7 @@ const SubOsnova = styled(Osnova)`
                             
                             <Item>{page}</Item>
                             <Next />
-                        </PaginationNews>
+                        </PaginationNews>*/} 
         </SubOsnova>)
     }else {
         return (
