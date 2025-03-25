@@ -12,4 +12,6 @@ export const Pahts = {
    project: 'project',
    nko: 'nko',
    contacts: 'contacts',
+   oneproject: 'oneproject',
+   onenko: 'onenko',
 }

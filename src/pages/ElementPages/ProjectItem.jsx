@@ -1,4 +1,5 @@
 import { styled } from "styled-components"
+import { Pahts } from './../../shared/Paths';
 
 const Main = styled.div`
     display: grid;
@@ -12,8 +13,8 @@ const Main = styled.div`
     }
 `
 const MainImg= styled.img`
-    height: 80%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     object-fit: fill;
 `
 const Maina = styled.a`
@@ -55,10 +56,11 @@ export const ProjectItem = (props) =>{
     return(
         <Main>
             {props.props.map((item, i) => {
+                console.log(item.id)
                 return(
                     <Itemdiv>
-                        <MainImg src={item.img} alt="" />
-                        <Maina href="">{item.text}</Maina>
+                        <a href={'/#/'+ Pahts.oneproject + `/${item.id}`}><MainImg src={item.img} alt="" /></a>
+                        <Maina href={'/#/'+ Pahts.oneproject + `/${item.id}`}>{item.text}</Maina>
                     </Itemdiv>
                 )
             })}

@@ -64,7 +64,7 @@ export const Contacts = () => {
                 <Glava>Телефон:</Glava>
                 <Link href="tel:+73412631011">+7 (3412) 63-10-11</Link>
                 <Glava>E-MAIL:</Glava>
-                <Link href="mailto:mail@ddn.udmr.ru">mail@ddn.udm.ru</Link>
+                <Link href="mailto:mail@ddn.udmr.ru">mail@ddn.udmr.ru</Link>
             </Text>
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaec335d9cc34384cc90617bb8f06387c577ac4930ee57bb3d028455e0351d93f&amp;source=constructor" width="730" height="408" frameborder="0"></iframe>
         </Main>
