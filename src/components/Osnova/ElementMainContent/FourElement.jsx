@@ -37,6 +37,7 @@ const MainText = styled.p`
     span{
         font-size:40pt;
         font-weight: bold;
+        z-index: 10;
     }
     @media (width <= 1200px){
         font-size: 30pt;

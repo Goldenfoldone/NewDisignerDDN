@@ -6,6 +6,7 @@ import { fetchPost } from "../../../http/postAPI";
 
 const Main = styled.div`
     padding-top: 54px;
+    z-index: 100;
 `
 const GridNew =styled.div`
     display: grid;

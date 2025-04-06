@@ -7,11 +7,42 @@ export const createPost   = async (post) => {
     return data
 }
 
-export const fetchPost = async (query, page, limit = 1) => {
-    const params = new URLSearchParams(query, page, limit)
-    const {data} = await $host.get('/api/postsy/getal', {params})
-    return data
-}
+export const fetchPost = async (query, limit = 9, page = 1) => {
+    try {
+               
+        const numericLimit = Number(limit);
+        const numericPage = Number(page);
+        
+        if (isNaN(numericLimit) || isNaN(numericPage) || numericLimit <= 0 || numericPage <= 0) {
+            throw new Error('Limit and page must be positive numbers');
+        }
+
+        // Делаем запрос с коррекным URL и параметрами
+        const response = await $host.get('/api/postsy/getal', {
+            params: {
+                query,
+                limit,
+                page
+            }
+        });
+
+        // Проверяем структуру ответа
+        if (!response.data) {
+            throw new Error('Invalid API response structure');
+        }
+
+        return response.data;
+        
+    } catch (error) {
+        console.error('Failed to fetch posts:', error);
+        return {
+            error: true,
+            message: error.message || 'Failed to fetch posts',
+            data: null
+        };
+
+    }
+};
 
 
 

@@ -343,7 +343,7 @@ export const NKO = () =>{
     const totalPages = Math.ceil(content.length / itemsPerPage);
     // Функция для изменения страницы
     // Функция для загрузки данных с искусственной задержкой
-  const loadPageData = (page) => {
+  const loadPageData =(page) => {
     setLoading(true);
     
     // Имитация задержки загрузки (например, 500 мс)

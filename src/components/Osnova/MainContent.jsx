@@ -10,7 +10,7 @@ import { FourElements } from "./ElementMainContent/FourElement"
 const OneOrnament = styled.img`
     display: inline-block;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     top: 1150px;
     right: 0;
     @media (width < 1024px){
@@ -21,8 +21,8 @@ const OneOrnament = styled.img`
 const TwoOrnament = styled.img`
     display: inline-block;
     position: absolute;
-    z-index: 2;
-    top: 3500px;
+    z-index: 1;
+    top: 3650px;
     @media (width <=1200px){
         top: 4400px;
     }
@@ -39,7 +39,7 @@ export const MainContent = () =>{
         <OneOrnament src={oneornament}/>
         <ThreeElement/>
         <FourElements/>
-        <TwoOrnament src={twoornament}/>
+        {/*<TwoOrnament src={twoornament}/>*/}
         </>
     )
 }
