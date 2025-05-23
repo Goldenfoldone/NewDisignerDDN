@@ -71,15 +71,15 @@ const SubOsnova = styled(Osnova)`
     const [posts, setPosts] = useState()
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const itemsPerPage = 5;
+    const itemsPerPage = 10;
     const maxVisiblePages = 5;
 
     useEffect(()=>{
         
        fetchPost(props.name, itemsPerPage, currentPage).then(data=>{
-                                                                        setTotalPages(Math.ceil(data.count / itemsPerPage))
-                                                                        setPosts(data.rows)
-    })
+          setTotalPages(Math.ceil(data.count / itemsPerPage))
+          setPosts(data.rows)
+        })
 
     }, [props.name, currentPage])
     if (!posts){

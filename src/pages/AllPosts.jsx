@@ -50,6 +50,7 @@ export const AllPosts  = (props) => {
         <>
         {(props.massiv || []).map((item) => {
             const {img, title, descropion, id} = item;
+            console.log(props.massiv.length)
                 return(
                     <>
                         <Osnova>
@@ -59,7 +60,7 @@ export const AllPosts  = (props) => {
                             <div>
                                 <Zagolovok>{title}</Zagolovok>
                                 <Decript>{descropion}</Decript>
-                                <Links href={'/#/'+ Pahts.onepostpage + `/${id}`} target="_self">Подробнее &rarr;</Links>
+                                <Links href={props.massiv == '10' ?'/#/'+ Pahts.onepostpage + `/${id}` : '/#/'+ Pahts.onepostevents + `/${id}`} target="_self">Подробнее &rarr;</Links>
                             </div>
                         </Osnova>
                     </>

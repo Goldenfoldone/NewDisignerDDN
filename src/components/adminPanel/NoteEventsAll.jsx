@@ -4,10 +4,9 @@ import { Context } from './../../index';
 import { useContext, useEffect,useState } from "react"
 import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { Pahts } from '../../shared/Paths';
-import { fetchPost, deletePost } from "../../http/postAPI";
 import Modal from 'react-bootstrap/Modal';
 import Pagination from 'react-bootstrap/Pagination';
+import { fetchEvents } from '../../http/evenstsAPI';
 
 const PaginationNews = styled(Pagination)`
     justify-content: center;
@@ -84,7 +83,7 @@ const NoteAdminButton = styled(Button)`
 `
 
 
-export const NoteNewsAll = () => {
+export const NoteEventsAll = () => {
     const [show, setShow] = useState(false);
     const [posts, setPosts] = useState()
     const handleClose = () => setShow(false);
@@ -95,12 +94,12 @@ export const NoteNewsAll = () => {
     const maxVisiblePages = 5;
     const handelShowYES = () => {
         setShow(false);
-        deletePost(postToDelete).then(() => {window.location.reload()})
+       //deletePost(postToDelete).then(() => {window.location.reload()})
     }    
     
     const histo = useNavigate()
     useEffect(() =>{
-        fetchPost("Новости",itemsPerPage, currentPage).then(data=>{
+        fetchEvents(itemsPerPage, currentPage).then(data=>{
           setTotalPages(Math.ceil(data.count / itemsPerPage))
           setPosts(data.rows)})
     }, [currentPage])
@@ -160,7 +159,7 @@ export const NoteNewsAll = () => {
                     <Text  dangerouslySetInnerHTML={{ __html: post.text}}>
                     
                     </Text>
-                    <NoteAdminButton variant="primary" onClick={() =>histo('/admin/note/' + post.id)}>Редактирование</NoteAdminButton>
+                    <NoteAdminButton variant="primary" onClick={() =>histo('/admin/adminevents/' + post.id)}>Редактирование</NoteAdminButton>
                     <NoteAdminButton variant="danger" color='red' onClick={()=> handleShow(post.id)}>Удаление</NoteAdminButton>
                 </Card.Body>
                  <Modal show={show} onHide={handleClose}>

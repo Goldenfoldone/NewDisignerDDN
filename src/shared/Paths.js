@@ -14,4 +14,7 @@ export const Pahts = {
    contacts: 'contacts',
    oneproject: 'oneproject',
    onenko: 'onenko',
+   evnentsfull: "eventsfull",
+   onepostevents: 'eventsone',
+   eventsred: "adminevents"
 }

@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 import { SectionText } from "./SectionText"
 import { useEffect, useState } from "react"
 import { fetchEvents } from "../../../http/evenstsAPI"
+import { Pahts } from "../../../shared/Paths"
 
 
 const Main = styled.div`
@@ -62,17 +63,27 @@ const EventsText = styled.p`
     br{
     }
 `
-const TwoElButton = styled.button`
-    display: none;
-    @media (width <= 924px){
-        display: block;
-        background-color:  #F66A55;
-        border: 1px solid white;
-        height: 50px;
-        width: 279px;
-        font-size: 20pt;
-        margin-bottom: 10px;
+const TwoElButton = styled.a`
+    height: 50px;
+    width: 279px;
+    background-color:  #F66A55;
+    border: 1px solid white;
+    font-size: 20pt;
+    justify-self: center;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding-top: 4px;
+    &:hover{
+    background-color: #F0EAE0;
+    border: 1px solid black;
+    color: #F66A55;
     }
+`
+const FlexBox = styled.div`
+
+display:grid;
+gap: 10px;
 `
 
 export const TwoElement = () => {
@@ -87,6 +98,7 @@ export const TwoElement = () => {
     return (
         <Main>
                 <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
+                <FlexBox>
                 <FillColor>
         {posts.map((e, item)=>{
             let day = new Date(e.timeOn)
@@ -118,8 +130,9 @@ export const TwoElement = () => {
                   
         }}
     })}
-    <TwoElButton>Ещё</TwoElButton>
+    
     </FillColor>        
-
+    <TwoElButton href={'/#/'+ Pahts.evnentsfull}>Ещё</TwoElButton>
+    </FlexBox>
 </Main>)
 }

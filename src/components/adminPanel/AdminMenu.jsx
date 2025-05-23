@@ -33,7 +33,7 @@ const AdLink = styled(Link)`
 `
 
 
-const adminItems = [{name:'Страницы'},{name:'Записи', url: Pahts.note},{name:'Отзывы'},{name:'Создание страницы',url: Pahts.postingspost},{name:'Создание мероприятий',url: Pahts.Aevents}]
+const adminItems = [{name:'Записи', url: Pahts.note},{name:'Мероприятия', url: Pahts.eventsred},{name:'Создание страницы',url: Pahts.postingspost},{name:'Создание мероприятий',url: Pahts.Aevents}]
 
 export const AdminMenu = () => {
     const params = useLocation()  

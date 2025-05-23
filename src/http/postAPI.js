@@ -61,3 +61,17 @@ export const fetchisOnepost = async (id, post) => {
     const {data} = await $authHost.post('/api/postsy/is/' + id, post)
     return data
 }
+
+export const deletePost = async (id) => {
+    try {
+        const { data } = await $authHost.delete(`/api/postsy/delete/` + id);
+        return data;
+    } catch (error) {
+        console.error('Failed to delete post:', error);
+        return {
+            error: true,
+            message: error.response?.data?.message || 'Failed to delete post',
+            data: null
+        };
+    }
+};

@@ -32,19 +32,22 @@ import { Contacts } from './pages/Contacts';
 import { Documents } from './pages/Documents';
 import { Oneprodject } from './pages/ElementPages/Oneprodject';
 import { OneNKO } from './pages/ElementPages/OneNKO';
+import { Events } from './pages/Events';
+import { OnePostEvents } from './pages/ElementPages/OnePostEvents';
+import { NoteEventsAll } from './components/adminPanel/NoteEventsAll';
 
 const rus_news= [{img:oblo, title: 'Перечень региональных льгот и мер социальной поддержки, предоставляемых на территории удмуртской республики военнослужащим и членам их семей', descropion: 'Инвалиды боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах», освобождаются от уплаты налога по одному транспортному средству, мощность двигателя которого не превышает 150 лошадиных сил (110,33 кВт) включительно. Ветераны боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах»'},{img:oblo2, title: 'Перечень региональных льгот и мер социальной поддержки, предоставляемых на территории удмуртской республики военнослужащим и членам их семей', descropion: 'Инвалиды боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах», освобождаются от уплаты налога по одному транспортному средству, мощность двигателя которого не превышает 150 лошадиных сил (110,33 кВт) включительно. Ветераны боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах»'}, {img:oblo, title: 'Перечень региональных льгот и мер социальной поддержки, предоставляемых на территории удмуртской республики военнослужащим и членам их семей', descropion: 'Инвалиды боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах», освобождаются от уплаты налога по одному транспортному средству, мощность двигателя которого не превышает 150 лошадиных сил (110,33 кВт) включительно. Ветераны боевых действий, которым оказываются меры социальной поддержки в соответствии с Федеральным законом«О ветеранах»'}];
 
 const servicpost = [
   {img:muz1,
     title:'Музыкальный салон (105 м2)', 
-    price:'1200',
+    price:'3000',
     scope:"Услуги по организации и проведению мероприятий в Музыкальном салоне (творческих и поэтических вечеров, презентаций); Фотосессия - 1200 руб/час",
     priceincl: 'Белый рояль (закрытый), 8 мраморных столов, 24 банкетки, Рояль открывается только для музыкальных вечеров'},
   {
     img:holl,
     title:'Холл первого этажа (356 м2)', 
-    price:'',
+    price:'3000',
     scope:"Услуги по организации и проведению мероприятий (выставок изобразительного и декоративно-прикладного искусства, фотовыставок, презентаций, мастер-классов, танцевальных мероприятий)",
     priceincl: 'Столы для регистрации с накидками до 3 шт, Столы  до 25 шт, Стулья до 50 шт, '},
   {
@@ -94,13 +97,17 @@ function App() {
           }          
           <Route path={Pahts.hrental + '/:id'} element={<Hrentalpost mas={servicpost}/>}/> 
           <Route path={Pahts.onepostpage + '/:id'} element={<OnePostNews/>}/>
+          <Route path={Pahts.onepostevents + '/:id'} element={<OnePostEvents/>}/>
           <Route path={Pahts.oneproject + '/:id'} element={<Oneprodject/>}/>
           <Route path={Pahts.onenko + '/:id'} element={<OneNKO/>}/>
+          <Route path={Pahts.evnentsfull} element={<Events name='Мероприятия'/>}/>
         </Route>
         <Route path="/login" element={<Login/>}/>
         <Route path={Pahts.admin} element={<PrivateRouter><AdminMenu> <Outlet /> </AdminMenu></PrivateRouter>}>
           <Route path={Pahts.postingspost} element= { <NewsPostingsPage/> }/>
           <Route path={Pahts.note} element= { <NoteNewsAll/> }/>
+          <Route path={Pahts.eventsred} element={<NoteEventsAll/>}/>
+          <Route path={Pahts.eventsred + '/:id'} element={<EditingNote/>}/>
           <Route path={Pahts.note + '/:id'} element= { <EditingNote/>}/> 
           <Route path={Pahts.Aevents} element={<CreatEvents/>}/>
         </Route>        

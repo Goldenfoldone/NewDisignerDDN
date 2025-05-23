@@ -1,5 +1,5 @@
 import Button from 'react-bootstrap/Button';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { fetchOnePost, fetchisOnepost } from '../../http/postAPI';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -70,11 +70,16 @@ import {
 import translations from 'ckeditor5/translations/ru.js';
 
 import 'ckeditor5/ckeditor5.css';
+import { Pahts } from '../../shared/Paths';
+import { fetchisOneevents, fetchOneEvents } from '../../http/evenstsAPI';
 
 export const EditingNote = () => {
     const [post,setPost] = useState('')
 	const [newpost, setNewPost] = useState('')
-    const {id} = useParams()
+   	let {id} = useParams();
+	const location = useLocation();
+  	const segments = location.pathname.split('/').filter(Boolean);
+	
 	const editorContainerRef = useRef(null);
 	const editorMenuBarRef = useRef(null);
 	const editorToolbarRef = useRef(null);
@@ -82,8 +87,13 @@ export const EditingNote = () => {
 	const [isLayoutReady, setIsLayoutReady] = useState(false);
 
     useEffect(() => {
-        fetchOnePost(id).then(data => setPost(data)) 
-		setIsLayoutReady(true);		
+		if(segments[1] === Pahts.note){
+			fetchOnePost(id).then(data => setPost(data)); setIsLayoutReady(true);
+		} 	else if (segments[1] === Pahts.eventsred) {
+			fetchOneEvents(id).then(data => setPost(data)); setIsLayoutReady(true);
+		}
+		
+			
 		
     }, [])
     
@@ -298,9 +308,15 @@ export const EditingNote = () => {
 	};
 
 	const Save = () =>{
+		if(segments[1] === Pahts.note){
 		const fromData = new FormData()
 		fromData.append('newText', newpost)
 		fetchisOnepost(id,fromData).then(console.log('Сохранение прошло успешно'))
+		} else if (segments[1] === Pahts.eventsred){
+			const fromData = new FormData()
+			fromData.append('newText', newpost)
+			fetchisOneevents(id,fromData).then(console.log('Сохранение прошло успешно'))
+		}
 	}
     
     return(
