@@ -311,11 +311,11 @@ export const EditingNote = () => {
 		if(segments[1] === Pahts.note){
 		const fromData = new FormData()
 		fromData.append('newText', newpost)
-		fetchisOnepost(id,fromData).then(console.log('Сохранение прошло успешно'))
+		fetchisOnepost(id,fromData).then(window.location.reload())
 		} else if (segments[1] === Pahts.eventsred){
 			const fromData = new FormData()
 			fromData.append('newText', newpost)
-			fetchisOneevents(id,fromData).then(console.log('Сохранение прошло успешно'))
+			fetchisOneevents(id,fromData).then(window.location.reload())
 		}
 	}
     

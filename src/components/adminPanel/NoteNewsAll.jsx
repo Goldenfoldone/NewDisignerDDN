@@ -83,7 +83,6 @@ const NoteAdminButton = styled(Button)`
     }
 `
 
-
 export const NoteNewsAll = () => {
     const [show, setShow] = useState(false);
     const [posts, setPosts] = useState()
@@ -95,7 +94,7 @@ export const NoteNewsAll = () => {
     const maxVisiblePages = 5;
     const handelShowYES = () => {
         setShow(false);
-        deletePost(postToDelete).then(() => {window.location.reload()})
+        deletePost(postToDelete.id).then(() => {window.location.reload()})
     }    
     
     const histo = useNavigate()
@@ -104,9 +103,9 @@ export const NoteNewsAll = () => {
           setTotalPages(Math.ceil(data.count / itemsPerPage))
           setPosts(data.rows)})
     }, [currentPage])
-    const handleShow = (postId) => {
+    const handleShow = (post) => {
             setShow(true)
-            setPostToDelete(postId);
+            setPostToDelete(post);
     }
     const getPageNumbers = () => {
         const pages = [];
@@ -161,14 +160,19 @@ export const NoteNewsAll = () => {
                     
                     </Text>
                     <NoteAdminButton variant="primary" onClick={() =>histo('/admin/note/' + post.id)}>Редактирование</NoteAdminButton>
-                    <NoteAdminButton variant="danger" color='red' onClick={()=> handleShow(post.id)}>Удаление</NoteAdminButton>
+                    <NoteAdminButton variant="danger" color='red' onClick={()=> handleShow(post)}>Удаление</NoteAdminButton>
                 </Card.Body>
-                 <Modal show={show} onHide={handleClose}>
+                 
+            </Card>
+            
+        )
+        }
+        <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>Удаление записи  </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Название записи: {post.title}     
+                        Название записи: {postToDelete?.title}     
                     </Modal.Body>
                     <Modal.Body>
                         Её уже нельзя будет вернуть или востановить
@@ -182,10 +186,6 @@ export const NoteNewsAll = () => {
                     </Button>
                     </Modal.Footer>
                 </Modal>
-            </Card>
-            
-        )
-        }
         <PaginationNews>
                 <Prev onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))} disabled={currentPage === 1}  />                  
                 {getPageNumbers().map((page, index) => (

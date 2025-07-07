@@ -10,6 +10,9 @@ export const Info = styled.div`
 export const Text = styled.p`
     text-align: justify;
     font-size: 23px;
+    @media (width <= 768px) {
+        font-size: 19px;     
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -29,6 +32,7 @@ export const StyledNavLink = styled(NavLink)`
 
 export const Styleh1 = styled.h1`
     font-size: 1.5em;
+    text-align: justify;
 `;
 
 export const Styleda = styled.a`
@@ -47,6 +51,10 @@ export const CapLetters = styled.h1`
     color: #535353;
     padding-top: 30px;
     margin: 0;
+
+    @media (width <=768px){
+        font-size: 38px;
+    }
 `
 
 export const Styledp = styled.p`
@@ -56,7 +64,7 @@ font-size: 23px;
 export const Osnova = styled.div`
     margin-top: 1.5%;
     padding: 0 160px;
-    @media (width < 608px) {
-        padding: 0 30px;
+    @media (width <= 768px) {
+        padding: 0 25px;
     }
 `;

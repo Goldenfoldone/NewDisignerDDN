@@ -23,8 +23,10 @@ const FillColor = styled.div`
         gap: 15px;
     }
 `
-const Events =  styled.div`
+const Events =  styled.a`
     z-index: 3;
+    text-decoration: none;
+    color: black;
     @media (width <= 924px){
         &:not(:first-child){
             display: none;
@@ -32,8 +34,8 @@ const Events =  styled.div`
     }
 `
 const EventsImg = styled.img`
-    width:297px;
-    height: 268px;
+    width: 297px;
+    object-fit: contain;
     background-color: black;
     border: 6px solid white;
     border-top: 0px;
@@ -86,6 +88,11 @@ display:grid;
 gap: 10px;
 `
 
+const DivColor = styled.div`
+   display: flex;
+   justify-content: center;
+`
+
 export const TwoElement = () => {
     const [posts, setPosts] = useState()    
     useEffect(()=>{
@@ -110,8 +117,10 @@ export const TwoElement = () => {
         if (item < 3){
         if (e.timeOut == e.timeOn){
             return(
-                    <Events>
-                        <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                    <Events href={'/#/'+ Pahts.onepostevents + `/${e.id}`}>
+                        <DivColor>
+                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                        </DivColor>                        
                         <EventsText> <span>{e.title}</span> 
                         {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`}</EventsText>
                     </Events>)
@@ -120,7 +129,10 @@ export const TwoElement = () => {
             
             return(
                     <Events>
+                        <DivColor>
                             <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                        </DivColor>
+                            
                             <EventsText> <span>{e.title}</span> 
                            с {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`} по {`${dayout.getDate()} ${monthout.toLocaleString('default', { month: 'long' })} ${yearout.getFullYear()}`}</EventsText>
                             

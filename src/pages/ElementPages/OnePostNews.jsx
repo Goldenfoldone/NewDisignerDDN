@@ -12,7 +12,8 @@ const DImg =styled.div`
 const NewOsnova = styled(Osnova)`
     display: flex;
     gap: 10px;
-    @media (width < 608px) {
+
+    @media (width <= 768px) {
         flex-direction: column;
         align-items: center;
     }
@@ -21,7 +22,7 @@ const NewOsnova = styled(Osnova)`
 const Imgpost = styled.img`
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top;    
     @media (width < 608px) {
         height: 200px;
@@ -38,12 +39,17 @@ const PostT = styled(CapLetters)`
 const Postext = styled(Text)`
     padding-bottom: 40px;
     padding-right: 10px;
+    font-family: 'Futurabookc';
     p a {
         color:#000;
         text-decoration: none;
     }
     p a:hover {
         color: #DB6B4D;
+    }
+    span{
+        font-family: 'Futurabookc' !important;
+        font-size: 22px !important;
     }
 `
 const Content = styled.div`

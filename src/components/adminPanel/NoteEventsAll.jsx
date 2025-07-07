@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Pagination from 'react-bootstrap/Pagination';
-import { fetchEvents } from '../../http/evenstsAPI';
+import { deleteEvents, fetchEvents } from '../../http/evenstsAPI';
 
 const PaginationNews = styled(Pagination)`
     justify-content: center;
@@ -94,7 +94,7 @@ export const NoteEventsAll = () => {
     const maxVisiblePages = 5;
     const handelShowYES = () => {
         setShow(false);
-       //deletePost(postToDelete).then(() => {window.location.reload()})
+        deleteEvents(postToDelete.id).then(() => {window.location.reload()})
     }    
     
     const histo = useNavigate()
@@ -103,9 +103,10 @@ export const NoteEventsAll = () => {
           setTotalPages(Math.ceil(data.count / itemsPerPage))
           setPosts(data.rows)})
     }, [currentPage])
-    const handleShow = (postId) => {
+    const handleShow = (post) => {
+            setPostToDelete(post);
             setShow(true)
-            setPostToDelete(postId);
+            
     }
     const getPageNumbers = () => {
         const pages = [];
@@ -160,14 +161,18 @@ export const NoteEventsAll = () => {
                     
                     </Text>
                     <NoteAdminButton variant="primary" onClick={() =>histo('/admin/adminevents/' + post.id)}>Редактирование</NoteAdminButton>
-                    <NoteAdminButton variant="danger" color='red' onClick={()=> handleShow(post.id)}>Удаление</NoteAdminButton>
+                    <NoteAdminButton variant="danger" color='red' onClick={()=> handleShow(post)}>Удаление</NoteAdminButton>
                 </Card.Body>
-                 <Modal show={show} onHide={handleClose}>
+            </Card>
+            
+        )
+        }
+        <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>Удаление записи  </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        Название записи: {post.title}     
+                        Название записи: {postToDelete?.title}  
                     </Modal.Body>
                     <Modal.Body>
                         Её уже нельзя будет вернуть или востановить
@@ -180,11 +185,7 @@ export const NoteEventsAll = () => {
                         Да
                     </Button>
                     </Modal.Footer>
-                </Modal>
-            </Card>
-            
-        )
-        }
+            </Modal>
         <PaginationNews>
                 <Prev onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))} disabled={currentPage === 1}  />                  
                 {getPageNumbers().map((page, index) => (

@@ -16,5 +16,6 @@ export const Pahts = {
    onenko: 'onenko',
    evnentsfull: "eventsfull",
    onepostevents: 'eventsone',
-   eventsred: "adminevents"
+   eventsred: "adminevents",
+   reviews: "reviews"
 }

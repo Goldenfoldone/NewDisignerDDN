@@ -34,10 +34,10 @@ const ContactInfo = styled.div`
     grid-template-columns: 1fr 186px 1fr;
     padding-top: 149px;
     padding-bottom: 96px;
-    @media (width <= 724px){
+    @media (width <= 768px){
         display: flex;
         flex-wrap: wrap;
-        gap: 110px;
+        gap: 30px;
         justify-content: center;
         flex-direction: column;
         align-content: center;

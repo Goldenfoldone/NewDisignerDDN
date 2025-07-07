@@ -95,9 +95,9 @@ export const People = () => {
         {
             img:dep_dir_1, 
             name:'Брекоткин Вадим Владимирович',
-            contact_tel:'8 (3412) 63-10-43',
+            contact_tel:'8 (3412) 63-10-63',
             contact_mail:'brekotkin_vv@ddn.udmr.ru', 
-            post:'заместитель директор по общим вопросам',
+            post:'заместитель директора по общим вопросам',
             contact_telweb:'tel:83412631043',
             contact_mailweb:'mailto:brekotkin_vv@ddn.udmr.ru'},
         'dep_dir_2':

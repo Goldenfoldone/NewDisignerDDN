@@ -9,6 +9,8 @@ import Pagination from 'react-bootstrap/Pagination';
     justify-content: center;
     padding-top: 30px;
     gap: 20px;
+    flex-wrap: wrap;
+    
  `
 
 const Prev = styled(Pagination.Prev)`

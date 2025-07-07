@@ -10,11 +10,16 @@ const Main = styled.div`
    padding-top: 30px;
    padding-bottom: 30px;
    margin-top: 30px;
+   @media (width <=768px) {
+        flex-direction: column;
+    }
 `
 const Text = styled.div`
     display: flex;
     flex-direction: column;
-    
+    @media (width <=768px) {
+        padding-left: 25px;
+    }
 `
 const Glava = styled.h1`
     color: #F66A55;
@@ -24,6 +29,11 @@ const Link = styled.a`
     font-size: 40px;
     text-decoration: none;
     padding-left: ${props => props.margin}px;
+
+    @media (width <=768px) {
+        font-size: 20px;
+        padding-left: 30px;
+    }
 `
 
 const Contact = styled.div`
@@ -38,20 +48,49 @@ const Text2 = styled.div`
     padding-left: 250px;
     padding-top: 20px;
     gap: 100px;
+    @media (width <=768px) {
+        flex-direction: column;
+        padding-left: 30px;
+        gap: 20px;
+    }
+    
 `
 const Text3 = styled.div`
      display: flex;
      gap: 20px;
+     
      img{
         width: 60px;
+        @media (width <=768px) {
+        width: 30px;
+        }
      }
      a{
         font-size: 40px;
         font-weight: 100;
         text-decoration: none;
         color: #F0EAE0;
+        @media (width <=768px) {
+        font-size: 20px;
+        }
      }
 `
+const MyFrames = styled.div`
+    display: flex;
+    justify-content: center;
+
+    iframe{
+        width: 750px;
+        @media (width <=768px) {
+        width: 350px;
+        margin-top: 20px;
+        }
+    }
+
+    
+`
+
+
 export const Contacts = () => {
     return(
         <>
@@ -66,7 +105,9 @@ export const Contacts = () => {
                 <Glava>E-MAIL:</Glava>
                 <Link href="mailto:mail@ddn.udmr.ru">mail@ddn.udmr.ru</Link>
             </Text>
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaec335d9cc34384cc90617bb8f06387c577ac4930ee57bb3d028455e0351d93f&amp;source=constructor" width="730" height="408" frameborder="0"></iframe>
+            <MyFrames>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaec335d9cc34384cc90617bb8f06387c577ac4930ee57bb3d028455e0351d93f&amp;source=constructor"  frameborder="0"></iframe>
+            </MyFrames>
         </Main>
         <Contact>
             <Link margin={250}>НАШИ СООБЩЕСТВА:</Link>

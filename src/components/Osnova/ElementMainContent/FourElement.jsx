@@ -15,6 +15,7 @@ import torg from '../../img/dsc_0016-1024x685.jpg'
 import mnfunc from '../../img/dsc_0361-1280x857.jpg'
 import minizal from '../../img/dsc_0711.jpg'
 import { Pahts } from "../../../shared/Paths";
+import { createReviews } from "../../../http/rewiewsAPI";
 
 const Main = styled.div`
     background-color: #EADAC8;
@@ -159,8 +160,17 @@ export const FourElements = () => {
         }
     }
     const [show, setShow] = useState(false);
+    const [email, setEmail] = useState('');
+    const [feedbackText, setFeedbackText] = useState('');
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const hendeleDispatch = () => {
+        const fromData = new FormData()
+		fromData.append('email', email)
+		fromData.append('text', feedbackText)
+        createReviews(fromData).then(console.log('Ваш отзыв успешно отправлен'))
+        setShow(false)
+    }
 
     const settings = {
         dots: true,
@@ -214,6 +224,8 @@ export const FourElements = () => {
                             type="email"
                             placeholder="name@example.ru"
                             autoFocus
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         </Form.Group>
                         <Form.Group
@@ -221,7 +233,12 @@ export const FourElements = () => {
                         controlId="exampleForm.ControlTextarea1"
                         >
                         <Form.Label>Текст отзыва</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control 
+                        as="textarea" 
+                        rows={3} 
+                        value={feedbackText}
+                        onChange={(e) => setFeedbackText(e.target.value)}
+                        />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -229,7 +246,7 @@ export const FourElements = () => {
                     <Button_Modal variant="secondary" onClick={handleClose}>
                         Закрыть
                     </Button_Modal>
-                    <Button_Modal variant="primary" onClick={handleClose}>
+                    <Button_Modal variant="primary" onClick={hendeleDispatch}>
                         Отправить отзыв
                     </Button_Modal>
                 </Modal.Footer>

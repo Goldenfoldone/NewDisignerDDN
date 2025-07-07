@@ -20,7 +20,7 @@ const NewOsnova = styled(Osnova)`
 const Imgpost = styled.img`
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: top;    
     @media (width < 608px) {
         height: 200px;
@@ -43,6 +43,10 @@ const Postext = styled(Text)`
     }
     p a:hover {
         color: #DB6B4D;
+    }
+    span{
+        font-family: 'Futurabookc' !important;
+        font-size: 22px !important;
     }
 `
 const Content = styled.div`

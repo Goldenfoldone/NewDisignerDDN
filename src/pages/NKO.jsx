@@ -40,6 +40,14 @@ import Spinner from 'react-bootstrap/Spinner';
     justify-content: center;
     padding-top: 30px;
     gap: 20px;
+    flex-wrap: wrap;
+    grid-column: 1 / 4;
+
+    @media (width <= 768px){
+        width: fit-content;
+        grid-column: 1 / 3;
+        justify-self: center;
+    }
  `
  const Prev = styled(Pagination.Prev)`
     a{
@@ -88,6 +96,10 @@ const Main = styled.div`
     display: grid;
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);
+
+    @media (width <= 768px){
+        grid-template-columns:  repeat(2, 1fr);
+    }
 `
 
 const Item = styled.div`
@@ -109,11 +121,17 @@ const ItemText = styled.a`
     text-decoration: none;
     color: black;
     cursor: pointer;
+    @media (width <= 768px){
+        font-size: 19px;
+    }
 `
 
 const ItemImg = styled.img`
     max-height: 200px;
     padding-top: 50px;
+    display: block;
+    max-width: 100%;
+
 `
 const Myspiner = styled(Spinner)`
     width: 750px;
@@ -337,14 +355,18 @@ export const NKO = () =>{
         },
     ]
     const [currentPage, setCurrentPage] = useState(1); // Текущая страница
-    const [itemsPerPage] = useState(6); // Количество элементов на странице
+    const [itemsPerPage, setItemsPerPage] = useState(6); // Количество элементов на странице
+      
     const [currentItems, setCurrentItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const totalPages = Math.ceil(content.length / itemsPerPage);
     // Функция для изменения страницы
     // Функция для загрузки данных с искусственной задержкой
+
+    
   const loadPageData =(page) => {
     setLoading(true);
+    
     
     // Имитация задержки загрузки (например, 500 мс)
     setTimeout(() => {
@@ -363,6 +385,7 @@ export const NKO = () =>{
       
     }
   };
+   
 
   const goToPrevPage = () => {
     if (currentPage > 1) {
@@ -395,11 +418,7 @@ export const NKO = () =>{
                     </Item> 
                     )
                 })}
-                </Main>
-                </>
-        )}
-        
-        <PaginationNews>
+                <PaginationNews>
                 <Prev onClick={goToPrevPage}  />                
                 {Array.from({ length: Math.ceil(content.length / itemsPerPage) }).map(
                     (_, index) => (
@@ -413,7 +432,12 @@ export const NKO = () =>{
                     )
                 )}
                 <Next onClick={goToNextPage}/>
-        </PaginationNews>
+                </PaginationNews>
+                </Main>
+                </>
+        )}
+        
+        
         </>
     )
 }

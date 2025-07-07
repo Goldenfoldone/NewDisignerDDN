@@ -19,13 +19,19 @@ const Complecs_one = styled.div`
     &:last-child{
         padding-bottom: 150px;
     }
+
+    @media (width <= 768px ) {
+        flex-direction: column;
+    }
 `
 const Img_complect = styled.img`
-    height: 350px;
+    max-height: 350px;
 `
 
 const Text_comlect = styled.p`
     font-size: 1.5em;
+    text-align: justify;
+    margin: 0 0;
     &:last-child{
         padding-bottom: 150px;
     }
@@ -130,13 +136,16 @@ export const Oneprodject = () =>{
             <Styleh1>{content[id - 1].text}</Styleh1>
             <Complecs_one>
                 <Img_complect src={content[id - 1].img1} alt="" />
-                <Text_comlect>{content[id - 1].text1}</Text_comlect>
+                
             </Complecs_one>
+            <Text_comlect>{content[id - 1].text1}</Text_comlect>
             <Text_comlect>{content[id - 1].text2}</Text_comlect>
-            <Complecs_one>
-                {content[id - 1].text3.length === 0 ? <></> : <Text_comlect>{content[id - 1].text3}</Text_comlect>}
-                {content[id - 1].text3.length === 0 ? <></> : <Img_complect src={content[id - 1].img2} alt="" />}                
-            </Complecs_one>
+            {content[id - 1].text3.length === 0 ? <></> : <Text_comlect>{content[id - 1].text3}</Text_comlect>}            
+            {content[id - 1].text3.length === 0 ? <></> : (
+                <Complecs_one>
+                    <Img_complect src={content[id - 1].img2} alt="" />
+                </Complecs_one>)}                
+            
             {content[id - 1].text4.length === 0 ? <></> : <Text_comlect>{content[id - 1].text4}</Text_comlect>}
         </Main>
     )

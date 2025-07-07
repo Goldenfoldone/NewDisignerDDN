@@ -58,7 +58,7 @@ const LabelTitle = styled.a`
 `
 const Burger = styled(Navbar)`
     display: none;
-    @media (width <= 608px){
+    @media (width <= 768px){
         display: block;
     }
 `
@@ -70,6 +70,7 @@ const LinkDropdowntel = styled(NavDropdown)`
 `
 const LinkDropdowntelItem = styled(NavDropdown.Item)`
     font-size: 23px;
+    color: #F66A55;
 `
 const MenuDropdown = styled(NavDropdown)`
     color: #F0EAE0;
@@ -109,7 +110,20 @@ const Oblochka = styled.div`
     gap: 20px;
     align-items: center;
 `
+const NavBarCanvas = styled(Navbar.Offcanvas)`
+    background-color: #2C535E;
+    color: #F66A55;
+    div div div div{
+        background-color: #2C535E;
+        border: 1px solid #F66A55;
+        a:nth-child(-n+2){
+            border-bottom: 1px solid #F66A55;
+        }
+    }
+    
 
+    
+`
 
 
 export const BasicMenu = () => {
@@ -159,7 +173,7 @@ export const BasicMenu = () => {
             <Burger  key={false} expand={false} >
                 <Container fluid >
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-false`} onClick={() => {toggleOffCanvas()}}/>
-                    <Navbar.Offcanvas
+                    <NavBarCanvas
                     id={`offcanvasNavbar-expand-false`}
                     aria-labelledby={`offcanvasNavbarLabel-expand-false`}
                     placement="end"
@@ -192,7 +206,7 @@ export const BasicMenu = () => {
                 
                         </Nav>
                     </Offcanvas.Body>
-                    </Navbar.Offcanvas>
+                    </NavBarCanvas>
                 </Container>
         </Burger>
         </Main>

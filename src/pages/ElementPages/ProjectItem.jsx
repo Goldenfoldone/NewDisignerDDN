@@ -6,7 +6,7 @@ const Main = styled.div`
     grid-template-columns: repeat(3,1fr);
     padding: 20px;
     gap: 32px;
-    @media (width < 750px) {
+    @media (width <= 768px) {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -56,7 +56,7 @@ export const ProjectItem = (props) =>{
     return(
         <Main>
             {props.props.map((item, i) => {
-                console.log(item.id)
+                
                 return(
                     <Itemdiv>
                         <a href={'/#/'+ Pahts.oneproject + `/${item.id}`}><MainImg src={item.img} alt="" /></a>

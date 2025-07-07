@@ -23,9 +23,9 @@ const Img = styled.img`
     width: ${props => props.width}px;
     height: ${props => props.height}px;
     border-radius: 12px;
+    object-fit: contain;
     @media (width <= 724px){
         width: 300px;
-        height: 200px;
     }
     @media (width <= 414px){
         padding-right: 0px;
