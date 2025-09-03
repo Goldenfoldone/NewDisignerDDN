@@ -67,6 +67,7 @@ export const OnePostEvents = () => {
     const [post,setPost] = useState('')
     useEffect(() => {
         fetchOneEvents(id).then(data => setPost(data)) 
+        window.scrollTo(0, 0)
     }, [])
     return(    
         <NewOsnova>

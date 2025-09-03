@@ -10,6 +10,12 @@ import world from "../components/img/project/мирвдиалоге картин
 import can from "../components/img/project/можем-поможем лого.png"
 import museum from "../components/img/project/музей ддн лого.png"
 import etepxert from "../components/img/project/etnoexpert-01.png"
+import gerber from "../components/img/project/Гербер.png";
+import semk from "../components/img/project/Семык.png";
+import sabantui from "../components/img/project/Сабантуй.png";
+import korban from "../components/img/project/Корбан.png";
+import mas from "../components/img/project/Масленица.png";
+import chackara from "../components/img/project/Чакара.png";
 
 const text = [
     {title:'РОДИНА – ЗНАЧИТ ВМЕСТЕ!', color:'#F66A55', subtitle: 'Объединяем народы, знакомим жителей Удмуртии с этнокультурным многообразием, создаем практики совместной деятельности',project:[
@@ -28,11 +34,12 @@ const text = [
         {img: can, text:'Семейный центр социокультурной адаптации мигрантов «Можем-Поможем»', id: 9}
     ]},
     {title:'НАЦИОНАЛЬНЫЕ ПРАЗДНИКИ', color:'#D96A57', subtitle: 'Республиканские праздники разных народов', margin:60, project:[
-        {img: '', text:'Удмуртский праздник Гербер', id: 10},
-        {img: '', text:'Марийский праздник Семык', id: 11},
-        {img: '', text:'Татарский и башкирский праздник Сабантуй', id: 12},
-        {img: '', text:'Бесермянский праздник Кӧрбан', id: 13},
-        {img: '', text:'Русский праздник Масленица', id: 14},
+        {img: gerber, text:'Удмуртский праздник Гербер', id: 10},
+        {img: semk, text:'Марийский праздник Семык', id: 11},
+        {img: sabantui, text:'Татарский и башкирский праздник Сабантуй', id: 12},
+        {img: korban, text:'Бесермянский праздник Кӧрбан', id: 13},
+        {img: mas, text:'Русский праздник Масленица', id: 14},
+        {img: chackara, text:'Всероссийский фольклорный фестиваль «Древние напевы удмуртов «Чакара»', id: 15},
     ]},
 ]
 

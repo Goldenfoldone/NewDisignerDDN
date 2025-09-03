@@ -100,6 +100,10 @@ const Main = styled.div`
     @media (width <= 768px){
         grid-template-columns:  repeat(2, 1fr);
     }
+    @media (width <= 425px){
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const Item = styled.div`

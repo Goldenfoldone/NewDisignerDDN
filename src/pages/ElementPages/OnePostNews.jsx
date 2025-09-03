@@ -12,7 +12,6 @@ const DImg =styled.div`
 const NewOsnova = styled(Osnova)`
     display: flex;
     gap: 10px;
-
     @media (width <= 768px) {
         flex-direction: column;
         align-items: center;
@@ -26,6 +25,10 @@ const Imgpost = styled.img`
     object-position: top;    
     @media (width < 608px) {
         height: 200px;
+    }
+    @media (width <= 425px ) {
+        width: 100%;
+        object-fit: cover;
     }
 `
 
@@ -51,10 +54,18 @@ const Postext = styled(Text)`
         font-family: 'Futurabookc' !important;
         font-size: 22px !important;
     }
+
+    @media (width <= 425px ) {
+         text-align: left;
+         word-break: break-all;
+    }
 `
 const Content = styled.div`
     border-right: 0px solid #535353;
     width: 80%;
+    @media (width <=425px) {
+        width: 100%;
+    }
 `
 const Link = styled(Styleda)`
     font-size: 25px;
@@ -80,6 +91,7 @@ export const OnePostNews = () => {
     const [post,setPost] = useState('')
     useEffect(() => {
         fetchOnePost(id).then(data => setPost(data)) 
+        window.scrollTo(0, 0)
     }, [])
     return(    
         <NewOsnova>

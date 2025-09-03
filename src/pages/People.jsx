@@ -3,9 +3,9 @@ import dir from '../components/img/administration/Шахтина.jpg';
 import secretary from '../components/img/administration/Абрамович.JPG';
 import dep_dir_1 from '../components/img/administration/Брекоткин.JPG';
 import dep_dir_2 from '../components/img/administration/Жуйкова.JPG';
-import dep_tex_obsl from '../components/img/administration/Уткин.JPG';
+import dep_tex_obsl from '../components/img/administration/Менабде.JPG';
 import dep_tex_snab from '../components/img/administration/Гаратуев.JPG';
-import dep_dir_admin from '../components/img/administration/Коконова.JPG';
+import dep_dir_admin from '../components/img/administration/Иванова.JPG';
 import dep_dep_relations from '../components/img/administration/Полатова.JPG';
 import dep_dep_events from '../components/img/administration/Мираева.JPG';
 import dep_dep_education from '../components/img/administration/Чурина.JPG';
@@ -112,12 +112,12 @@ export const People = () => {
         'dep_tex_obsl':
         {
             img:dep_tex_obsl, 
-            name:'Уткин Евгений Владимирович',
+            name:'Менабде Роман Валерьянович',
             contact_tel:'8 (3412) 63-10-04',
-            contact_mail:'utkin_ev@ddn.udmr.ru', 
-            post:'начальник отдела информационно-технического обеспечения',
+            contact_mail:'menabde_rv@ddn.udmr.ru', 
+            post:'исполняющий обязаности начальника отдела информационно-технического обеспечения',
             contact_telweb:'tel:83412631004',
-            contact_mailweb:'mailto:utkin_ev@ddn.udmr.ru'},
+            contact_mailweb:'mailto:menabde_rv@ddn.udmr.ru'},
         'dep_tex_snab':
         {
             img:dep_tex_snab, 
@@ -130,12 +130,12 @@ export const People = () => {
         'dep_dir_admin':
         {
             img:dep_dir_admin, 
-            name:'Кононова Алла Геннадьевна',
+            name:'Иванова Вера Ивановна',
             contact_tel:'8 (3412) 63-10-68',
-            contact_mail:'kononova_ag@ddn.udmr.ru', 
-            post:'начальник административно-правового отдела ',
+            contact_mail:'ivanova_vi@ddn.udmr.ru', 
+            post:'исполняющая обязаности начальника административно-правового отдела ',
             contact_telweb:'tel:83412631068',
-            contact_mailweb:'mailto:kononova_ag@ddn.udmr.ru'},
+            contact_mailweb:'mailto:ivanova_vi@ddn.udmr.ru'},
         'dep_dep_relations':
         {
             img:dep_dep_relations, 

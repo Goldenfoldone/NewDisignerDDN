@@ -55,6 +55,7 @@ const EventsText = styled.p`
     padding-right: 24px;
     font-size: 23pt;
     word-wrap: break-word;
+    z-index: 10;
     span{
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -106,36 +107,40 @@ export const TwoElement = () => {
         <Main>
                 <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
                 <FlexBox>
-                <FillColor>
-        {posts.map((e, item)=>{
+               <FillColor>
+       {posts.map((e, item)=>{
             let day = new Date(e.timeOn)
             let month = new Date(e.timeOn)
             let year = new Date(e.timeOn)
             let dayout = new Date(e.timeOut)
             let monthout = new Date(e.timeOut)
             let yearout = new Date(e.timeOut)
+            const currentDate = new Date();
+            const eventDate = new Date(e.timeOut)
+            if (eventDate < currentDate) {
+                    return (<EventsText>В ближайшее время мероприятий не запланировано</EventsText>);
+            }
         if (item < 3){
         if (e.timeOut == e.timeOn){
+            
             return(
                     <Events href={'/#/'+ Pahts.onepostevents + `/${e.id}`}>
                         <DivColor>
                             <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
                         </DivColor>                        
-                        <EventsText> <span>{e.title}</span> 
+                        <EventsText> 
                         {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`}</EventsText>
                     </Events>)
             
-        }else {
-            
+        }else {          
             return(
                     <Events>
                         <DivColor>
                             <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
                         </DivColor>
                             
-                            <EventsText> <span>{e.title}</span> 
+                            <EventsText> 
                            с {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`} по {`${dayout.getDate()} ${monthout.toLocaleString('default', { month: 'long' })} ${yearout.getFullYear()}`}</EventsText>
-                            
                             
                     </Events>  
             )     
@@ -143,8 +148,8 @@ export const TwoElement = () => {
         }}
     })}
     
-    </FillColor>        
+    </FillColor>     
     <TwoElButton href={'/#/'+ Pahts.evnentsfull}>Ещё</TwoElButton>
-    </FlexBox>
+    </FlexBox> 
 </Main>)
 }

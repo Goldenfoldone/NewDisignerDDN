@@ -13,9 +13,10 @@ const Main = styled.div`
     }
 `
 const MainImg= styled.img`
-    height: 100%;
+    height: 400px;
     width: 100%;
-    object-fit: fill;
+    object-fit: contain;
+    padding: 20px;
 `
 const Maina = styled.a`
     text-decoration: none;

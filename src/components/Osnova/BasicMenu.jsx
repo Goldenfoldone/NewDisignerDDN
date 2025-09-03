@@ -26,8 +26,10 @@ const Main = styled.div`
     position: sticky;
     top: 0;
     z-index: 1000;
-    @media (width <= 608px){
+    @media (width <= 768px){
         justify-content: space-between;
+        height: fit-content;
+        padding-bottom:20px;
     }
 `
 const MenuLogo = styled.img`

@@ -33,6 +33,10 @@ export const StyledNavLink = styled(NavLink)`
 export const Styleh1 = styled.h1`
     font-size: 1.5em;
     text-align: justify;
+    @media (width <= 425px ) {
+         text-align: left;
+         
+    }
 `;
 
 export const Styleda = styled.a`
@@ -55,6 +59,13 @@ export const CapLetters = styled.h1`
     @media (width <=768px){
         font-size: 38px;
     }
+    @media (width <=425px){
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        margin: 0 0;
+        padding: 0 0;
+    }
 `
 
 export const Styledp = styled.p`
@@ -66,5 +77,8 @@ export const Osnova = styled.div`
     padding: 0 160px;
     @media (width <= 768px) {
         padding: 0 25px;
+    }
+    @media (width <=425px) {
+        padding: 0 20px;
     }
 `;
