@@ -96,7 +96,7 @@ function App() {
               <Route key= '/' path={Pahts.structure + '/' + path} element={<People/>} />
             ))
           }          
-          <Route path={Pahts.hrental + '/:id'} element={<Hrentalpost mas={servicpost}/>}/> 
+          <Route path={Pahts.hrental + '/:id'} element={<Hrentalpost mas={servicpost}/>}/>
           <Route path={Pahts.onepostpage + '/:id'} element={<OnePostNews/>}/>
           <Route path={Pahts.onepostevents + '/:id'} element={<OnePostEvents/>}/>
           <Route path={Pahts.oneproject + '/:id'} element={<Oneprodject/>}/>

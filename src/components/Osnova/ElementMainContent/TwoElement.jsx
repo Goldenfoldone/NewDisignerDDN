@@ -97,59 +97,76 @@ const DivColor = styled.div`
 export const TwoElement = () => {
     const [posts, setPosts] = useState()    
     useEffect(()=>{
-        fetchEvents().then(data => {setPosts(data.rows)})
+        fetchEvents().then(data => {
+            setPosts(data.rows)
+        })
     }, [])
+    
     if (!posts){
         return null;
     }
-    posts.sort((a,b)=> parseFloat(b.id)-parseFloat(a.id))
+    
+    // Сортируем по дате окончания события (timeOut) - ближайшие сначала
+    const sortedPosts = [...posts].sort((a,b) => {
+        const dateA = new Date(a.timeOut);
+        const dateB = new Date(b.timeOut);
+        return dateA - dateB; // Ближайшие даты будут первыми
+    });
+    
+    // Фильтруем только будущие события
+    const currentDate = new Date();
+    const futureEvents = sortedPosts.filter(event => {
+        const eventDate = new Date(event.timeOut);
+        return eventDate >= currentDate;
+    });
+    
+    // Берем только 3 ближайших события
+    const nearestEvents = futureEvents.slice(0, 3);
+    
     return (
         <Main>
-                <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
-                <FlexBox>
-               <FillColor>
-       {posts.map((e, item)=>{
-            let day = new Date(e.timeOn)
-            let month = new Date(e.timeOn)
-            let year = new Date(e.timeOn)
-            let dayout = new Date(e.timeOut)
-            let monthout = new Date(e.timeOut)
-            let yearout = new Date(e.timeOut)
-            const currentDate = new Date();
-            const eventDate = new Date(e.timeOut)
-            if (eventDate < currentDate) {
-                    return (<EventsText>В ближайшее время мероприятий не запланировано</EventsText>);
-            }
-        if (item < 3){
-        if (e.timeOut == e.timeOn){
-            
-            return(
-                    <Events href={'/#/'+ Pahts.onepostevents + `/${e.id}`}>
-                        <DivColor>
-                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
-                        </DivColor>                        
-                        <EventsText> 
-                        {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`}</EventsText>
-                    </Events>)
-            
-        }else {          
-            return(
-                    <Events>
-                        <DivColor>
-                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
-                        </DivColor>
+            <SectionText text='БЛИЖАЙШИЕ МЕРОПРИЯТИЯ' width={734}/>
+            <FlexBox>
+                <FillColor>
+                    {nearestEvents.length > 0 ? (
+                        nearestEvents.map((e) => {
+                            let day = new Date(e.timeOn)
+                            let month = new Date(e.timeOn)
+                            let year = new Date(e.timeOn)
+                            let dayout = new Date(e.timeOut)
+                            let monthout = new Date(e.timeOut)
+                            let yearout = new Date(e.timeOut)
                             
-                            <EventsText> 
-                           с {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`} по {`${dayout.getDate()} ${monthout.toLocaleString('default', { month: 'long' })} ${yearout.getFullYear()}`}</EventsText>
-                            
-                    </Events>  
-            )     
-                  
-        }}
-    })}
-    
-    </FillColor>     
-    <TwoElButton href={'/#/'+ Pahts.evnentsfull}>Ещё</TwoElButton>
-    </FlexBox> 
-</Main>)
+                            if (e.timeOut === e.timeOn) {
+                                return (
+                                    <Events href={'/#/'+ Pahts.onepostevents + `/${e.id}`}>
+                                        <DivColor>
+                                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                                        </DivColor>                        
+                                        <EventsText> 
+                                            {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`}
+                                        </EventsText>
+                                    </Events>
+                                )
+                            } else {          
+                                return (
+                                    <Events href={'/#/'+ Pahts.onepostevents + `/${e.id}`}>
+                                        <DivColor>
+                                            <EventsImg src={process.env.REACT_APP_API_URL +'/api/static/'+e.img} />
+                                        </DivColor>
+                                        <EventsText> 
+                                            с {`${day.getDate()} ${month.toLocaleString('default', { month: 'long' })} ${year.getFullYear()}`} по {`${dayout.getDate()} ${monthout.toLocaleString('default', { month: 'long' })} ${yearout.getFullYear()}`}
+                                        </EventsText>
+                                    </Events>  
+                                )     
+                            }
+                        })
+                    ) : (
+                        <EventsText>В ближайшее время мероприятий не запланировано</EventsText>
+                    )}
+                </FillColor>     
+                <TwoElButton href={'/#/'+ Pahts.evnentsfull}>Ещё</TwoElButton>
+            </FlexBox> 
+        </Main>
+    )
 }

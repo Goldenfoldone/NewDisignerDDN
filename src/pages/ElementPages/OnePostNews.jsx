@@ -57,7 +57,6 @@ const Postext = styled(Text)`
 
     @media (width <= 425px ) {
          text-align: left;
-         word-break: break-all;
     }
 `
 const Content = styled.div`
